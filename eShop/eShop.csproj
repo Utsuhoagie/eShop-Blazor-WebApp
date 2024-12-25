@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>481a22c7-ab22-4ffc-9a25-6fdda16ecdcc</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="MudBlazor" Version="7.15.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <_ContentIncludedByDefault Remove="Core\App\Products\CreateProduct.razor" />
+        <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css" />
+        <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css.map" />
+    </ItemGroup>
+
+</Project>

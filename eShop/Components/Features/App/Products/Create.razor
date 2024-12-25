@@ -1,0 +1,48 @@
+@using eShop.Data
+@using Microsoft.EntityFrameworkCore
+
+@page "/products/create"
+@rendermode InteractiveServer
+@inject IDbContextFactory<EShopContext> DbFactory
+@inject NavigationManager Nav
+
+@code {
+	record CreateProductForm
+	{
+		public string Name = string.Empty;
+		public float Price;
+	}
+
+	[SupplyParameterFromForm] CreateProductForm Form { get; set; } = new();
+
+	async Task Submit()
+	{
+		var product = Product.Create(Form.Name, Form.Price);
+
+		using var context = DbFactory.CreateDbContext();
+		context.Products.Add(product);
+		await context.SaveChangesAsync();
+
+		Nav.NavigateTo("/products");
+	}
+}
+
+@* Page *@
+
+<PageTitle>Create Product</PageTitle>
+
+<h1>Create Product</h1>
+
+<EditForm Model="Form" FormName="Create" OnValidSubmit="Submit">
+	<div>
+		<label for="Name">Product Name:</label>
+		<InputText id="Name" @bind-Value="Form.Name"/>
+	</div>
+
+	<div>
+		<label for="Price">Product Price:</label>
+		<InputNumber id="Price" @bind-Value="Form.Price"/>
+	</div>
+
+	<button type="submit">Submit</button>
+</EditForm>
